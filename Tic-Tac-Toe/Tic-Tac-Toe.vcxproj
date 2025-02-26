@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Board.h" />

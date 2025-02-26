@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "../include/Board.h"
 
 Board::Board() {
@@ -6,7 +9,34 @@ Board::Board() {
 			board[i][j] = ' ';
 		}
 	}
+
+	srand(time(NULL));
+	// Randomly picks a letter to be first player
+	playerOne = (rand() % 2) ? 'X' : 'O';
 }
+
+void Board::displayBoard() {
+	board[0][0] = 'X';
+	board[0][1] = 'X';
+	board[0][2] = 'X';
+	board[1][0] = 'X';
+	board[1][1] = 'X';
+	board[1][2] = 'X';
+	board[2][0] = 'X';
+	board[2][1] = 'X';
+	board[2][2] = 'X';
+	std::cout << " " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << std::endl;
+	std::cout << "-------------" << std::endl;
+	std::cout << " " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << std::endl;
+	std::cout << "-------------" << std::endl;
+	std::cout << " " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << std::endl;
+}
+
+
+
+
+
+
 
 void Board::clearBoard() {
 	for (int i = 0; i < 3; i++) {
@@ -28,9 +58,11 @@ bool Board::isFull() {
 	return true;
 }
 
+/*
 bool Board::spaceTaken() {
 
 }
+*/
 
 bool Board::winner() {
 	// Checks rows
@@ -56,4 +88,6 @@ bool Board::winner() {
 	if ((board[0][0] != ' ') && (board[2][0] == board[1][1]) && (board[1][1] == board[0][2])) {
 		return true;
 	}
+
+	return false;
 }
