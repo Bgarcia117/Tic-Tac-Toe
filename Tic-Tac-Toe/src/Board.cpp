@@ -45,11 +45,11 @@ bool Board::isFull() {
 	return true;
 }
 
-/*
-bool Board::spaceTaken() {
 
+bool Board::spaceTaken(int row, int col) {
+	return board[row - 1][col - 1] != ' ';
 }
-*/
+
 
 bool Board::winner() {
 	// Checks rows
@@ -77,4 +77,16 @@ bool Board::winner() {
 	}
 
 	return false;
+}
+
+void Board::placeLetter(int row, int col, char letter) {
+	if (isFull()) {
+		std::cout << "The board is full. Draw!" << std::endl;
+	}
+	else if (spaceTaken()) {
+		std::cout << "That space is already taken, please try again." << std::endl;
+	}
+	else {
+		board[row - 1][col - 1] = letter;
+	}
 }
