@@ -24,6 +24,7 @@ int main() {
 
 	switch (userChoice) {
 	    case 1:
+			std::cout << "-----------------------------------" << std::endl;
 			std::cout << "Player 1: \nEnter your name: " << std::endl;
 			std::cin >> firstPlayer;
 
@@ -31,12 +32,14 @@ int main() {
 			std::cin >> secondPlayer;
 
 			Game(firstPlayer, secondPlayer);
+			break;
 
 		case 2:
 			std::cout << "Enter your name: " << std::endl;
 			std::cin >> firstPlayer;
 
 			Game(firstPlayer);
+			break;
 	}
 
 
