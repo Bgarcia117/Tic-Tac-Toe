@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib> // srand() and rand()
+#include <ctime> // time() for seeding srand()
 #include "../include/Game.h"
 #include "../include/Board.h"
 #include "../include/Player.h"
@@ -15,6 +17,7 @@ Game::Game() {
 	std::cout << "\n--------Error check---------" << std::endl;
 	comp1.displayMembers();
 	comp2.displayMembers();
+	currentPlayer = 'O';
 
 }
 
@@ -24,6 +27,8 @@ Game::Game(std::string name) {
 
 	HumanPlayer human(name);
 	ComputerPlayer comp;
+
+	
 
 	std::cout << "\n--------Error check---------" << std::endl;
 	human.displayMembers();
@@ -37,12 +42,19 @@ Game::Game(std::string name1, std::string name2) {
 	HumanPlayer human1(name1);
 	HumanPlayer human2(name2);
 
+	std::cout << "\n-----------------------------------" << std::endl;
+	newBoard.displayBoard();
+
 	std::cout << "\n--------Error check---------" << std::endl;
 	human1.displayMembers();
 	human2.displayMembers();
 
 }
 
-void Game::decideLetters() {
 
+/* void Game::decideLetters() {
+	srand(time(NULL));
+	// Randomly picks a letter to be first player
+	playerOne = (rand() % 2) ? 'X' : 'O';
 }
+*/
