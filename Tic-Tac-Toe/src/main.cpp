@@ -1,12 +1,14 @@
 #include <iostream>
+#include <string>
+
 #include "../include/Board.h"
 #include "../include/Player.h"
 #include "../include/Game.h"
 
 int main() {
 	int userChoice = -1;
-	std::string firstPlayer = "NONE";
-	std::string secondPlayer = "NONE";
+	std::string firstPlayer;
+	std::string secondPlayer;
 
 	std::cout << "Welcome to Tic-Tac-Toe!" << std::endl;
 
@@ -15,6 +17,7 @@ int main() {
 		std::cout << "Please make a selection(1-2): " << std::endl;
 		std::cout << "1) Local 2-Player" << std::endl;
 		std::cout << "2) Play against the computer" << std::endl;
+		std::cout << "3) Computer vs Computer" << std::endl;
 		std::cin >> userChoice;
 
 		if (userChoice != 1 && userChoice != 2) {

@@ -14,6 +14,7 @@ public:
 
 	void displayMembers();
 	char getLetter() { return playerLetter; }
+	std::string getName() { return name; }
 	void setLetter(char letter) { playerLetter = letter; }
 
 };
