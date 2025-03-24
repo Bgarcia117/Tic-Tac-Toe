@@ -2,14 +2,16 @@
 
 #include <string>
 
+class Player;
+
 class Game {
 private:
-	char currentPlayer;
+	std::string currentPlayer;
 
 public:
 	Game();
 	Game(std::string name);
 	Game(std::string name1, std::string name2);
 
-	// void decideLetters();
+	void decideLetters(Player one, Player two);
 };
