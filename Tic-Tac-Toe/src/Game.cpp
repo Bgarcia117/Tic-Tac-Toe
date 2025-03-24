@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <cstdlib> // srand() and rand()
 #include <ctime> // time() for seeding srand()
 #include "../include/Game.h"
@@ -14,10 +15,14 @@ Game::Game() {
 	ComputerPlayer comp1;
 	ComputerPlayer comp2;
 
+	currentPlayer = 'O';
+
+	decideLetters(comp1, comp2);
+
 	std::cout << "\n--------Error check---------" << std::endl;
 	comp1.displayMembers();
 	comp2.displayMembers();
-	currentPlayer = 'O';
+	std::cout << "Current Player: " << currentPlayer << std::endl;
 
 }
 
@@ -28,11 +33,15 @@ Game::Game(std::string name) {
 	HumanPlayer human(name);
 	ComputerPlayer comp;
 
+	currentPlayer = ' ';
+
+	decideLetters(human, comp);
 	
 
 	std::cout << "\n--------Error check---------" << std::endl;
 	human.displayMembers();
 	comp.displayMembers();
+	std::cout << "Current Player: " << currentPlayer << std::endl;
 }
 
 // Constructor for player vs player
@@ -42,19 +51,29 @@ Game::Game(std::string name1, std::string name2) {
 	HumanPlayer human1(name1);
 	HumanPlayer human2(name2);
 
+	currentPlayer = ' ';
+
+	decideLetters(human1, human2);
+
 	std::cout << "\n-----------------------------------" << std::endl;
 	newBoard.displayBoard();
 
 	std::cout << "\n--------Error check---------" << std::endl;
 	human1.displayMembers();
 	human2.displayMembers();
+	std::cout << "Current Player: " << currentPlayer << std::endl;
 
 }
 
 
-/* void Game::decideLetters() {
+void Game::decideLetters(Player one, Player two) {
 	srand(time(NULL));
+	int randomNum = rand() % 2;
+
 	// Randomly picks a letter to be first player
-	playerOne = (rand() % 2) ? 'X' : 'O';
+	currentPlayer = randomNum ? one.getName() : two.getName();
+
+	one.setLetter(randomNum ? 'O' : 'X');
+	two.setLetter(randomNum ? 'X' : 'O');
+	
 }
-*/
