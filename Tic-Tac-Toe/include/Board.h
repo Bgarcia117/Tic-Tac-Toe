@@ -11,7 +11,7 @@ public:
 	void displayBoard();
 	void clearBoard();
 	bool isFull();
-	// bool spaceTaken();
+	bool spaceTaken(int row, int col);
 	void placeLetter(int row, int col, char letter);
 	bool winner();
 };

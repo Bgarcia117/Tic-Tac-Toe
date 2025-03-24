@@ -83,7 +83,7 @@ void Board::placeLetter(int row, int col, char letter) {
 	if (isFull()) {
 		std::cout << "The board is full. Draw!" << std::endl;
 	}
-	else if (spaceTaken()) {
+	else if (spaceTaken(row, col)) {
 		std::cout << "That space is already taken, please try again." << std::endl;
 	}
 	else {
