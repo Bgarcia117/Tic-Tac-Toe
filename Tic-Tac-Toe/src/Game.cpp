@@ -66,7 +66,7 @@ Game::Game(std::string name1, std::string name2) {
 }
 
 
-void Game::decideLetters(Player one, Player two) {
+void Game::decideLetters(Player& one, Player& two) {
 	srand(time(NULL));
 	int randomNum = rand() % 2;
 

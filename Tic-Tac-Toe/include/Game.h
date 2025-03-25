@@ -13,5 +13,5 @@ public:
 	Game(std::string name);
 	Game(std::string name1, std::string name2);
 
-	void decideLetters(Player one, Player two);
+	void decideLetters(Player& one, Player& two);
 };
