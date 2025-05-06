@@ -72,21 +72,22 @@ bool Board::winner() {
 	}
 
 	// Checks anti-diagonal
-	if ((board[0][0] != ' ') && (board[2][0] == board[1][1]) && (board[1][1] == board[0][2])) {
+	if ((board[2][0] != ' ') && (board[2][0] == board[1][1]) && (board[1][1] == board[0][2])) {
 		return true;
 	}
 
 	return false;
 }
 
-void Board::placeLetter(int row, int col, char letter) {
-	if (isFull()) {
-		std::cout << "The board is full. Draw!" << std::endl;
+bool Board::placeLetter(int row, int col, char letter) {
+	if (row < 1 || row > 3 || col < 1 || col > 3) {
+		return false;
 	}
-	else if (spaceTaken(row, col)) {
-		std::cout << "That space is already taken, please try again." << std::endl;
+
+	if (spaceTaken(row, col)) {
+		return false;
 	}
-	else {
-		board[row - 1][col - 1] = letter;
-	}
+
+	board[row - 1][col - 1] = letter;
+	return true;
 }
