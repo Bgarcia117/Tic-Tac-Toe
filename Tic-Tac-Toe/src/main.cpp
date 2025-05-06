@@ -27,6 +27,7 @@ int main() {
 
 	switch (userChoice) {
 	    case 1:
+	    {
 			std::cout << "-----------------------------------" << std::endl;
 			std::cout << "Player 1: \nEnter your name: " << std::endl;
 			std::cin >> firstPlayer;
@@ -34,19 +35,19 @@ int main() {
 			std::cout << "Player 2: \nEnter your name: " << std::endl;
 			std::cin >> secondPlayer;
 
-			Game(firstPlayer, secondPlayer);
+			Game NewGame(firstPlayer, secondPlayer);
+			NewGame.run();
+	    }
 			break;
 
 		case 2:
 			std::cout << "Enter your name: " << std::endl;
 			std::cin >> firstPlayer;
 
-			Game(firstPlayer);
+			Game NewGame(firstPlayer);
+			NewGame.run();
 			break;
 	}
-
-
-
 
 	return 0;
 }
